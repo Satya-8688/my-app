@@ -1,0 +1,79 @@
+<input type="text" [(ngModel)]="term " (keyup)="filterbikes()">
+
+<select name="" id="" [(ngModel)]="pageNo " (change)="getpagedbikes()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<label for="">Column</label>
+<select name="" id="" [(ngModel)]="column">
+    <option value="color">color</option>
+    <option value="model">model</option>
+</select>
+
+<label for="order">order</label>
+<select name="" id="" [(ngModel)]="order">
+    <option value="asc">asc</option>
+    <option value="desc">desc</option>
+</select>
+<button (click)="getsortedbikes()">sort</button>
+
+<hr>
+<hr>
+
+<label for="">Search:</label>
+<input type="text" [(ngModel)]="queries.filter" (keyup)="loadData()">
+
+<label for="">pageNo:</label>
+<select name="" id="" [(ngModel)]="queries.pageNo" (change)="loadData()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<label for="">Column</label>
+<select name="" id="" [(ngModel)]="queries.sortBy">
+    <option value="color">color</option>
+    <option value="model">model</option>
+</select>
+
+<label for="order">order</label>
+<select name="" id="" [(ngModel)]="queries.order">
+    <option value="asc">asc</option>
+    <option value="desc">desc</option>
+</select>
+<button (click)="loadData()">sort</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>vehicle</th>
+            <th>manufacture</th>
+            <th>model</th>
+            <th>type</th>
+            <th>fuel</th>
+            <th>color</th>
+            <th>image</th>
+            <th>cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bike of bikes">
+
+            <td>{{bike.id}}</td>
+            <td>{{bike.Vehicle}}</td>
+            <td>{{bike.manufacturer}}</td>
+            <td>{{bike.model}}</td>
+            <td>{{bike.type}}</td>
+            <td>{{bike.fuel}}</td>
+            <td>{{bike.color}}</td>
+            <td> <img src="{{bike.image}}" alt="" height="50px" width="100px"></td>
+            <td>{{bike.cost}}</td>
+            <td> <button (click)="deletedbikes(bike.id)">DELETE</button></td>
+        </tr>
+    </tbody>
+</table>

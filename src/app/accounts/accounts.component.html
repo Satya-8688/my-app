@@ -1,0 +1,48 @@
+<input type="text" [(ngModel)]="term" (keyup)="filter()">
+
+<select name="" id="" [(ngModel)]="pageNo" (change)="getpagedaccounts()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+</select>
+<label for="">column</label>
+<select name="" id="" [(ngModel)]="column">
+    <option value="available_balance">available_balance</option>
+    <option value="account_number">account_number</option>
+</select>
+<label for="">order</label>
+<select name="" id="" [(ngModel)]="order">
+    <option value="asc">asc</option>
+    <option value="desc">desc</option>
+</select>
+<button (click)="getsortaccounts()">sort</button>
+
+
+<table class="table table-stripped table-light">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>account_name</th>
+            <th>available_balance</th>
+            <th>account_number</th>
+            <th>city</th>
+            <th>profie_picture</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let account of accounts">
+            <td>{{account.id}}</td>
+            <td>{{account.account_name}}</td>
+            <td>{{account.available_balance}}</td>
+            <td>{{account.account_number}}</td>
+            <td>{{account.city}}</td>
+            <td><img src="{{account.profie_picture}}" alt="" height="50px" width="50px"></td>
+            <td><button (click)="deletedacc(account.id)" class="btn btn-danger">Delete</button></td>
+
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+<div>
+    <input type="text"  (keypress)="filter()" [(ngModel)]="term" placeholder="search"><br>
+    <select name="" id="" (change)="manufacture()"  [(ngModel)]="term1" >
+        <option value="">manufacture</option>
+        <option value="{{ vehicle.manufacturer}}"  *ngFor="let vehicle of allVehicles">{{ vehicle.manufacturer}}</option>
+    </select>
+    <select name="" id="" (change)="fuel()" [(ngModel)]="term2">
+        <option value="">fuel</option>
+        <option value="{{vehicle.fuel}}" *ngFor="let vehicle of allVehicles">{{vehicle.fuel}}</option>
+    </select>
+    <select name="" id="" (change)="color()" [(ngModel)]="term3">
+        <option value="">color</option>
+        <option value="{{ vehicle.color}}" *ngFor="let vehicle of allVehicles">{{ vehicle.color}}</option>
+    </select>
+    <select name="" id="" (change)="type()" [(ngModel)]="term4">
+        <option value="">type</option>
+        <option value="{{vehicle.type}}" *ngFor="let vehicle of allVehicles">{{vehicle.type}}</option>
+    </select>
+    <br>
+    <button type="button" class="btn btn-warning"  (click)="pricelowtohigh()">price low to high</button>
+    <button type="button" class="btn btn-warning" (click)="pricehightolow()">price high to low</button>
+    <button class="btn btn-info">price range</button>
+    <label for="" >from</label><input [(ngModel)]="from" type="number">
+    <label for=""  >to</label><input [(ngModel)]="to"    type="number">
+    <button (click)="func()">filter</button>
+    
+    
+<table class="table table-bordered ">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>vehicle</th>
+            <th>manufacture</th>
+            <th>model</th>
+            <th>type</th>
+            <th>fuel</th>
+            <th>color</th>
+            <th>image</th>
+            <th>cost</th>
+            <th>actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehicle of vehicles; let i=index">
+            <td>{{vehicle.id}}</td>
+            <td>{{vehicle.Vehicle}}</td>
+            <td>{{vehicle.manufacturer}}</td>
+            <td>{{vehicle.model}}</td>
+            <td>{{vehicle.type}}</td>
+            <td>{{vehicle.fuel}}</td>
+            <td>{{vehicle.color}}</td>
+            <td > <img src="{{vehicle.image}}" alt="" height="50px" width="100px"></td>
+            <td>{{vehicle.cost}}</td>
+            <td>
+                <button  (click)="delete(i)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    
+    </tbody>
+    
+</table>
+</div>

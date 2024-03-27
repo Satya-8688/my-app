@@ -1,0 +1,30 @@
+.mani{
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+}
+.manitop{
+    height:10% ;
+    width: 100%;
+    background-color: aliceblue;
+
+}
+.manibottom{
+    height:90% ;
+    width: 100%;
+    background-color: wheat;
+    display: flex;
+
+}
+.manileft{
+    height:100% ;
+    width: 15%;
+    background-color:grey;
+
+}
+.maniright{
+    height:100% ;
+    width: 85%;
+    background-color:lightblue;
+
+}
